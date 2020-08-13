@@ -33,7 +33,7 @@ pip3 install -U pip setuptools wheel
 echo "---> Building application from source..."
 
 # Copy uwsgi config
-mv .docker/etc/uwsgi.ini ./
+mv .openshift/uwsgi.ini ./
 mv .docker/etc/wsgi.py ./
 # mkdir -p /etc/nginx \
   # && cp .docker/etc/nginx.conf  /etc/nginx/nginx.conf
@@ -44,7 +44,7 @@ mv .docker/etc/wsgi.py ./
 
 
 # Copy settings
-SETTINGS_FILE_PATH=${APP_HOME:-.docker/etc/settings_local.dev.py.example}
+SETTINGS_FILE_PATH=${APP_HOME:-.openshift/settings_local.dev.py.example}
 echo "---> Copying settings from $SETTINGS_FILE_PATH"
 cp $SETTINGS_FILE_PATH ./apps/mainsite/settings_local.py
 
