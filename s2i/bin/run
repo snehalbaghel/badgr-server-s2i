@@ -7,6 +7,10 @@
 #	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
 
+if [ ! -z "$ECHO_TO_SETTINGS" ]; then
+    echo $ECHO_TO_SETTINGS >> ./apps/mainsite/settings_local.py
+fi
+
 python manage.py runserver 0.0.0.0:8080
 # uwsgi --ini uwsgi.ini
 # nginx -g daemon off
